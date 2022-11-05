@@ -3,12 +3,17 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
+
+        // Создали экземпляры нужных классов
         DataGetter dataGetter = new DataGetter();
-        boolean IsIncorrectData = true;
         String[] data = {};
         Parser parser = new Parser();
         ReadWriteUpdate rwu = new ReadWriteUpdate();
 
+        // Используем для проверки количества введенных данных
+        boolean IsIncorrectData = true;
+
+        // Словарь с возможными сгенерированными ошибками
         Map<String,String> errors = new HashMap<String,String>();
         errors.put("-1LCoD","Вы ввели больше данных, чем требуется.");
         errors.put("-1MCoD","Вы ввели меньше данных, чем требуется.");
@@ -19,7 +24,7 @@ public class Main {
         errors.put("-1FNE","Ошибка формата номера.");
         errors.put("-1SE","Ошибка ввода пола.");
 
-
+        // Вводим нужное количество данных
         System.out.println("Hello!");
         while (IsIncorrectData) {
             data = dataGetter.getData();
@@ -30,6 +35,7 @@ public class Main {
             }
         }
 
+        // Проверка корректности введенных данных, запись и чтение
         String result = parser.parse(data);
         if (errors.containsKey(result)) {
             System.out.println(errors.get(result));

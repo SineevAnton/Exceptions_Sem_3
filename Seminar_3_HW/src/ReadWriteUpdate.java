@@ -23,6 +23,7 @@ public class ReadWriteUpdate {
             while((c=reader.read())!=-1){
                 System.out.print((char)c);
             }
+            reader.close();
         } catch (IOException ex) {
             System.out.println("Файл не найден.");
             ex.printStackTrace();
